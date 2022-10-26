@@ -3,4 +3,6 @@ project(TD C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_library(TD parser.c tester.c)
+#add_library(TD parser.c tester.c)
+
+add_executable(TD parser.c tester.c)

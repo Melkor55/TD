@@ -11,7 +11,7 @@ typedef struct
     uint8_t ok;
     uint8_t data[AT_COMMAND_MAX_LINES][AT_COMMAND_MAX_LINE_SIZE + 1];
     uint32_t count;
-}AT_COMMAND_DATA;
+}AT_COMMAND_DATA;       // for testing multiple files
 
 typedef enum
 {
