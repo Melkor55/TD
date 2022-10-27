@@ -8,14 +8,18 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
 {
     //  STOP_OK = 18
     //  STOP_ERROR = 19
-    static uint32_t state = 0;
+    static int state = 0;
 //    uint8_t ch = current_character;
+    printf("%c \t %d",current_character, state);
     switch (state)
     {
+
         case 0:
         {
+
             if (current_character == 13)  //  <CR>
             {
+                
                 state = 1;
             }
             else
@@ -26,6 +30,8 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         }
         case 1:
         {
+
+
             if (current_character == 10)  //  <LF>
             {
                 
@@ -127,7 +133,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         }
         case 8:
         {
-            if (current_character == '0')
+            if (current_character == 'O')
             {
                 
                 state = 9;
@@ -282,6 +288,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         }
         default:
         {
+            printf("1");
             return STATE_MACHINE_NOT_READY;
         }
 

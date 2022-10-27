@@ -8,7 +8,7 @@
 
 void main(int argc, char *argv[])
 {
-    FILE *file = fopen(argv[1], "r");
+    FILE *file = fopen(argv[1], "rb");
 
     if (NULL == file) {
         printf("file can't be opened \n");
@@ -20,11 +20,11 @@ void main(int argc, char *argv[])
 
     while ((cur_char = fgetc(file)) != EOF)
     {
-        printf("%c", cur_char);
+    //    printf("%c", cur_char);
         ret_value = at_command_parse( (char) cur_char );
         if (ret_value == STATE_MACHINE_NOT_READY)
         {
-            printf("ret_value = %u\n", ret_value);
+            //printf("ret_value = %u\n", ret_value);
             continue;
         }
 
