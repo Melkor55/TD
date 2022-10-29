@@ -16,6 +16,8 @@ typedef struct
     uint32_t count;
 }AT_COMMAND_DATA;       // for testing multiple files
 
+extern AT_COMMAND_DATA data ;
+
 typedef enum
 {
     STATE_MACHINE_NOT_READY,
