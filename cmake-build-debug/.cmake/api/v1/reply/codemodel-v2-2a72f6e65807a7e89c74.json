@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Melkor/CLionProjects/TD/cmake-build-debug",
-		"source" : "C:/Users/Melkor/CLionProjects/TD"
+		"build" : "C:/Users/Melkor/Documents/Projects/VisualStudioCode/TD/cmake-build-debug",
+		"source" : "C:/Users/Melkor/Documents/Projects/VisualStudioCode/TD"
 	},
 	"version" : 
 	{

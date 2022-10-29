@@ -17,7 +17,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         case 0:
         {
 
-            if (current_character == 13)  //  <CR>
+            if (current_character == CR)  //  <CR>
             {
                 
                 state = 1;
@@ -32,7 +32,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         {
 
 
-            if (current_character == 10)  //  <LF>
+            if (current_character == LF)  //  <LF>
             {
                 
                 state = 2;
@@ -81,7 +81,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         }
         case 4:
         {
-            if (current_character == 0x0D)
+            if (current_character == CR)
             {
                 
                 state = 5;
@@ -94,7 +94,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         }
         case 5:
         {
-            if (current_character == 10)
+            if (current_character == LF)
             {
                 
                 state = 18;
@@ -159,7 +159,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         }
         case 10:
         {
-            if (current_character == 13)
+            if (current_character == CR)
             {
                 
                 state = 11;
@@ -172,7 +172,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         }
         case 11:
         {
-            if (current_character == 10)
+            if (current_character == LF)
             {
                 
                 state = 19;
@@ -203,7 +203,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
                 
                 state = 13;
             }
-            else if (current_character == 13)
+            else if (current_character == CR)
             {
                 
                 state = 14;
@@ -216,7 +216,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         }
         case 14:
         {
-            if (current_character == 10)
+            if (current_character == LF)
             {
                 
                 state = 15;
@@ -234,7 +234,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
                 
                 state = 12;
             }
-            else if (current_character == 13)
+            else if (current_character == CR)
             {
                 
                 state = 16;
@@ -247,7 +247,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         }
         case 16:
         {
-            if (current_character == 10)
+            if (current_character == LF)
             {
                 
                 state = 17;
@@ -288,7 +288,6 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         }
         default:
         {
-            printf("1");
             return STATE_MACHINE_NOT_READY;
         }
 

@@ -6,6 +6,9 @@
 #define  AT_COMMAND_MAX_LINES 100
 #define  AT_COMMAND_MAX_LINE_SIZE 100
 
+#define CR 0x0D
+#define LF 0x0A
+
 typedef struct
 {
     uint8_t ok;
