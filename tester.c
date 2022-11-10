@@ -6,6 +6,25 @@
 #include <string.h>
 #include "parser.h"
 
+void cleanData()
+{
+    for(int k = 0 ; k < AT_COMMAND_MAX_LINES; k++)
+        for(int p = 0 ; p < AT_COMMAND_MAX_LINE_SIZE+1; p++)
+            data.data[k][p]=0;
+    j=0;
+    i=0;
+//            printf("cleaned");
+}
+
+void printData()
+{
+    for(int k = 0 ; k < AT_COMMAND_MAX_LINES; k++)
+        for(int p = 0 ; p < AT_COMMAND_MAX_LINE_SIZE+1; p++)
+            if(data.data[k][p]!=0)
+                printf("%c",data.data[k][p]);
+//    printf("printed");
+}
+
 void main(int argc, char *argv[])
 {
     for (int i = 1 ; i < argc ; i ++)
@@ -30,16 +49,19 @@ void main(int argc, char *argv[])
 
             if(ret_value == STATE_MACHINE_READY_OK)
             {
-                printf("ok!");
+                //printf("ok!");
                 break;
             }
 
             if(ret_value == STATE_MACHINE_READY_WITH_ERROR)
             {
-                printf("error!");
+                //printf("error!");
                 break;
             }
         } while ( cur_char != EOF);
+
+        printData();
+        cleanData();
 
         printf( "\n-----------------------\t\tEOF for %s\t-----------------------\n\n",argv[i]);
 
@@ -52,5 +74,11 @@ void main(int argc, char *argv[])
 
         //return;
     }
-
+//    for(int k = 0 ; k < AT_COMMAND_MAX_LINES; k++)
+//        for(int p = 0 ; p < AT_COMMAND_MAX_LINE_SIZE+1; p++)
+//            if(data.data[k][p]!=0)
+//                printf("%c",data.data[k][p]);
+//    for(int k = 0 ; k < AT_COMMAND_MAX_LINES; k++)
+//        for(int p = 0 ; p < AT_COMMAND_MAX_LINE_SIZE+1; p++)
+//            printf("%c",data.data[k][p]);
 }

@@ -3,11 +3,13 @@
 
 #include <stdint.h>
 
-#define  AT_COMMAND_MAX_LINES 100
-#define  AT_COMMAND_MAX_LINE_SIZE 100
+#define  AT_COMMAND_MAX_LINES 10000
+#define  AT_COMMAND_MAX_LINE_SIZE 10000
 
 #define CR 0x0D
 #define LF 0x0A
+
+static int i=0,j=0;
 
 typedef struct
 {

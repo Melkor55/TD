@@ -10,6 +10,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
     //  STOP_ERROR = 19
 
     static  int state = 0 ;
+
     if (data.ok == 1)
     {
         state = 0;
@@ -17,7 +18,11 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
     }
 
 //    uint8_t ch = current_character;
-    printf("%c = %u\t->\t%d\n",current_character,current_character, state);
+    //printf("%c",current_character);
+    //if (current_character != 0)
+    data.data[j][i] = current_character;
+    i++;
+    //printf("(%d,%d)",i,j);
     switch (state)
     {
 
@@ -31,6 +36,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: <CR>",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -41,11 +47,12 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
 
             if (current_character == LF)  //  <LF>
             {
-                
+                j++;i=0;
                 state = 2;
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: <LF>",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -69,6 +76,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: 'O','E' or '+'",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -82,6 +90,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: 'K'",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -95,6 +104,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: <CR>",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -103,11 +113,12 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         {
             if (current_character == LF)
             {
-
+                j++;i=0;
                 state = 18;
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: <LF>",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -121,6 +132,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: 'R'",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -134,6 +146,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: 'R'",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -147,6 +160,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: 'O'",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -160,6 +174,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: 'R'",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -173,6 +188,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: <CR>",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -181,11 +197,12 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         {
             if (current_character == LF)
             {
-                
+                j++;i=0;
                 state = 19;
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: <LF>",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -199,6 +216,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: ASCII between 32 and 122",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -217,6 +235,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: ASCII between 32 and 122 or <CR>",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -225,11 +244,12 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         {
             if (current_character == LF)
             {
-                
+                j++;i=0;
                 state = 15;
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: <LF>",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -248,6 +268,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: '+' or <CR>",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -256,11 +277,12 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
         {
             if (current_character == LF)
             {
-                
+                j++;i=0;
                 state = 17;
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: <LF>",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
@@ -279,19 +301,20 @@ STATE_MACHINE_RETURN_VALUE at_command_parse(uint8_t current_character)
             }
             else
             {
+                printf("\nstate: %d\tgiven: %c\texpected: 'O' or 'E'",state,current_character);
                 return STATE_MACHINE_READY_WITH_ERROR;
             }
             break;
         }
         case 18:
         {
-            printf("return ok!\n");
+            //printf("return ok!\n");
             return STATE_MACHINE_READY_OK;
             //break;
         }
         case 19:
         {
-            printf("return err!\n");
+            //printf("return err!\n");
             return STATE_MACHINE_READY_WITH_ERROR;
             //break;
         }

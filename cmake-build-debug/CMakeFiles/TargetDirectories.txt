@@ -1,3 +1,0 @@
-C:/Users/Melkor/Documents/Projects/VisualStudioCode/TD/cmake-build-debug/CMakeFiles/TD.dir
-C:/Users/Melkor/Documents/Projects/VisualStudioCode/TD/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Melkor/Documents/Projects/VisualStudioCode/TD/cmake-build-debug/CMakeFiles/rebuild_cache.dir
